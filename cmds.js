@@ -6,6 +6,11 @@ const commands = [
     name: 'start',
     description: 'Start a normal game of Certes.',
   },
+  {
+    name: 'guess',
+    description:'Guess lyrics!',
+    
+  }
 ];
 
 const rest = new REST({ version: '10' }).setToken(credentials.token);
