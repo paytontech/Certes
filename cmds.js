@@ -8,8 +8,19 @@ const commands = [
   },
   {
     name: 'guess',
-    description:'Guess lyrics!',
-    
+    description:'Guess the song name',
+    options: [
+      {
+        name: 'name',
+        description: 'the name of the song you think it is',
+        type: 3,
+        required: true
+      }
+    ]
+  },
+  {
+    name: 'hint',
+    description: 'get a hint'
   }
 ];
 
