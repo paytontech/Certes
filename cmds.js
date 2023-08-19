@@ -21,6 +21,10 @@ const commands = [
   {
     name: 'hint',
     description: 'get a hint'
+  },
+  {
+    name: 'giveup',
+    description: 'give up'
   }
 ];
 

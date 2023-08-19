@@ -26,12 +26,16 @@ client.on('interactionCreate', async interaction => {
     } else {
       interaction.reply(":x: you need to be in a game first!")
     }
+  } else if (interaction.commandName === "giveup") {
+    handleGiveUp(interaction)
   }
 });
 
 client.login(credentials.token);
 
 var track;
+
+
 
 async function startNormal(interaction) {
   const musixmatch = new MusixMatch()
@@ -42,6 +46,19 @@ async function startNormal(interaction) {
   .setTitle('Guess the song!!')
   .addFields({ name: 'Lyrics', value:chosenLyrics},{name:'Instructions',value:'To guess the song, use the `/guess` command.'})
   interaction.reply({embeds: [embed]})
+}
+
+async function handleGiveUp(interaction) {
+  if (track != null) {
+    let realSongName = track.track.track_name
+    let realArtistName = track.track.artist_name
+    const embed = new EmbedBuilder()
+    .setTitle(`${realSongName} - ${realArtistName}`)
+    interaction.reply({embeds: [embed]})
+    track = null
+  } else {
+    interaction.reply(":x: you need to be in a game first!")
+  }
 }
 
 async function handleGuess(interaction) {
